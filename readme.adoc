@@ -1,0 +1,112 @@
+= 📜 About
+
+This is my personal neovim config inspired by https://github.com/LazyVim/LazyVim[LazyVim], with KISS in mind.
+
+
+== ✨ Features
+
+- KISS: simple and stupid, less is better
+- Easy: either to understand or to extend
+- Fast: modern neovim config with pure lua
+- Ready: comfortable and convenient out of the box
+
+
+== 🖼️ Effects
+
+[cols="1,1,1,1"]
+|===
+| image:https://github.com/rtgiskard/lazyNvim/assets/34635040/3d30cef3-b9b7-4117-aee1-b0a5908a1323[dashboard]
+| image:https://github.com/rtgiskard/lazyNvim/assets/34635040/01766bbc-5b2e-4e50-b2f5-877806fe8afa[coding]
+| image:https://github.com/rtgiskard/lazyNvim/assets/34635040/8f5715bd-28a7-489e-aa20-a6992cadce52[plugins]
+| image:https://github.com/rtgiskard/lazyNvim/assets/34635040/c74664bc-b90a-445b-9b4a-c7b29019d46d[float terminal]
+|===
+
+
+== ⚡️ Requirements
+
+- Neovim >= *0.8.0* (needs to be built with *LuaJIT*)
+- Git >= *2.19.0* (for partial clones support)
+- a https://www.nerdfonts.com/[Nerd Font] *_(optional)_*
+- a *C* compiler for `nvim-treesitter`. See https://github.com/nvim-treesitter/nvim-treesitter#requirements[here]
+
+- external tools (configured in `lua/init/options.lua:M.plugins`)
+* treesitter parser: used by `nvim-treesitter`, install/update with `:TSUpdate`
+* lsp server, linter, formatter: managed by `mason`, install/update with `:MasonUpdate`
+* dap: external debug tools, install: `mason` or manually
+
+
+== 🚀 Getting Started
+
+[source,bash]
+----
+# backup your neovim config
+mkdir -p nvim
+mv ~/.config/nvim/ nvim/nv.config
+mv ~/.local/share/nvim/ nvim/nv.share
+mv ~/.local/state/nvim/ nvim/nv.state
+mv ~/.cache/nvim/ nvim/nv.cache
+
+# clone the repo
+git clone https://github.com/rtgiskard/lazyNvim.git ~/.config/nvim
+
+# launch
+nvim
+
+# enter `Y` to install lazy.nvim and the plugins
+----
+
+
+== ⚙️ Configuration
+
+`lua/init/options.lua`::
+	most of neovim's options and some of the plugins' specs are configured here
+
+`lua/init/keymaps.lua`::
+	except for nvim and plugins' defaults, all manually configured keymaps are maintained here
+
+`lua/plugins/`::
+	define all the plugins managed by `lazy.nvim` with the spec settings
+
+As this is not meant to be an all-in-one config for all dev languages, the initial setup includes
+only a limited set that I personally use, you may want to adjust it as you need, like lsp servers
+and formatters list in `lua/init/options.lua::plugins`, which should be enough.
+
+Some of the settings are switchable via keymaps (like mouse, linenumber, listchars and etc.),
+of course you can define more with the handlers held in `lua/init/utils.lua`.
+
+And you may also find some references from https://www.lazyvim.org/[lazyVim's doc].
+
+
+== 🗒️ Plugin Notes
+
+- `treesitter`: syntax parser, provide better highlighting
+- `lsp`: language server, provide: completion, linting, formatting, diagnostics, hover/jump ..
+- `linter`: common checks and provide hints, run with or without `lsp`
+- `formatter`: format code, takes priority over `lsp` format
+- `dap`: debug adapter
+
+- related utils:
+. `mason`: help to install lsp/dap/linter/formatter tools
+. `lspconfig`: configurations for lsp servers
+
+- ui enhancement:
+. telescope: the extendable fuzzy finder
+. notify: popup notification
+. themes and misc
+
+- other tools: complete, indent, trim, pairs, and etc.
+
+
+== ✔️ Todo
+
+- [ ] better DAP integration
+- [ ] any recommendation?
+
+
+== 🧾 License
+
+This project is licensed under the terms of the https://www.gnu.org/licenses/gpl-3.0.html[GPLv3] or any later version.
+
+
+---
+image::https://storage.ko-fi.com/cdn/kofi1.png?v=3[height=40,link='https://ko-fi.com/E1E8MKPBZ']
