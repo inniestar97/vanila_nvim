@@ -40,7 +40,7 @@ function M.load_lazy()
 		checker = { enabled = option.plugins.auto_check, frequency = 86400 },
 		install = {
 			missing = option.plugins.auto_install,
-			-- colorscheme = { option.plugins.colorscheme, 'habamax' },
+			colorscheme = { option.plugins.colorscheme, 'habamax' },
 		},
 		ui = {
 			wrap = true,
@@ -63,7 +63,7 @@ function M.load_lazy()
 	})
 
 	-- load specified colorscheme
-	-- require(option.plugins.colorscheme).load()
+	require(option.plugins.colorscheme).load()
 end
 
 return M
